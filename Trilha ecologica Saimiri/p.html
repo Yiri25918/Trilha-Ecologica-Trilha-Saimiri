@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionários | Trilha Saimiri</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #245613;
+            margin: 0;
+            padding: 25px;
+        }
+        header {
+            max-width: 1200px;
+            margin: 0 auto 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            color: white;
+        }
+        header h2 {
+            margin: 0;   
+        }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .introducao {
+            max-width: 1200px;
+            margin: auto;
+            padding: 35px 25px;
+            background: white;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .introducao h1 {
+            color: #2e7d32;
+            font-size: 34px;
+            margin-top: 0;
+        }
+        .introducao p {
+            color: #555;
+            line-height: 1.7;
+            max-width: 750px;
+            margin: auto;
+        }
+        .formularios {
+            max-width: 1200px;
+            margin: 25px auto;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+            align-items: start;
+            text-align: justify;
+        }
+        .cartao {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            text-align: justify;
+        }
+        .cartao h2 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        .descricao {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .campo {
+            margin-bottom: 19px;
+        }
+        label,
+        .pergunta {
+            display: block;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5c7;
+            border-radius: 7px;
+            font: inherit;
+            background: #fff;
+        }
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: 2px solid #79a96d;
+            border-color: #2e7d32;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 95px;
+            text-align: justify;
+        }
+        .opcao {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            margin: 10px 0;
+            font-weight: normal;
+            line-height: 1.5;
+        }
+        .opcao input {
+            width: auto;
+            margin-top: 4px;
+        }
+        .nota {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-top: 7px;
+        }
+        .botao {
+            width: 100%;
+            border: none;
+            background: #2e7d32;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        .botao:hover {
+            background: #1b5e20;
+        }
+        .resultado {
+            display: none;
+            background: #edf7e9;
+            border-left: 5px solid #2e7d32;
+            border-radius: 7px;
+            padding: 18px;
+            margin-top: 20px;
+            color: #244b24;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+        }
+        .resultado h3 {
+            margin-top: 0;
+        }
+        footer {
+            max-width: 1200px;
+            margin: 25px auto 0;
+            color: white;
+            text-align: center;
+            font-size: 14px;
+        }
+        @media (max-width: 850px) {
+            .formularios {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+        }
+        header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .introducao h1 {
+            font-size: 28px;
+        }
+        .cartao {
+            padding: 22px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>🌿🐒Trilha Ecológica Saimiri</h2>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href= "sobre.html" >Sobre o projeto</a>
+            <a href="p.html">Questionário</a>
+             
+        </nav>
+    </header>
+    <main>
+    <section class="introducao">
+        <h1>Participe dessa experiência! 🌱</h1>
+        <p>
+        Sua opinião é importante para a divulgação da Trilha
+        Ecológica Saimiri. Escolha um dos questionários abaixo
+        para compartilhar sua opinião ou demonstrar interesse
+        em conhecer esse espaço natural.
+        </p>
+    </section>
+    
+    <div class="formularios">
+<!-- QUESTIONÁRIO 1: AVALIAÇÃO -->
+    <section class="cartao">
+        <h2>💚 1. Avaliação da trilha</h2>
+        <p class="descricao">
+        Queremos conhecer sua opinião sobre a Trilha
+        Ecológica Saimiri. Você pode responder mesmo
+        que ainda não tenha visitado o local.
+        </p>
+    <form id="formAvaliacao">
+        <div class="campo">
+            <label for="jaVisitou">
+            Você já visitou a Trilha Saimiri?
+            </label>
+            <select id="jaVisitou" name="jaVisitou" required>
+                <option value="">Selecione uma opção</option>
+                <option value="Sim">Sim</option>
+                <option value="Não">Não</option>
+            </select>
+        </div>
+        <div class="campo">
+            <label for="conhecimento">
+            Antes deste site, você conhecia a trilha?
+            </label>
+            <select id="conhecimento" name="conhecimento" required>
+                <option value="">Selecione uma opção</option>
+                <option value="Sim">Sim, já conhecia</option>
+                <option value="Não">Não conhecia</option>
+                <option value="Pouco">Já tinha ouvido falar</option>
+            </select>
+        </div>
+        <div class="campo">
+            <label for="interesse">
+            Você gostaria de conhecer a trilha?
+            </label>
+            <select id="interesse" name="interesse" required>
+                <option value="">Selecione uma opção</option>
+                <option value="Sim">Sim</option>
+                <option value="Talvez">Talvez</option>
+                <option value="Não">Não</option>
+            </select>
+        </div>
+        <div class="campo">
+            <label for="nota">
+            Como você avalia sua experiência ou,
+            se ainda não visitou, a apresentação do site?
+            </label>
+            <select id="nota" name="nota" required>
+                <option value="">Escolha uma avaliação</option>
+                <option value="5">5 — Excelente</option>
+                <option value="4">4 — Muito boa</option>
+                <option value="3">3 — Boa</option>
+                <option value="2">2 — Regular</option>
+                <option value="1">1 — Precisa melhorar</option>
+            </select>
+        </div>
+        <div class="campo">
+            <label for="sugestao">
+            O que você gostaria de conhecer ou melhorar?
+            </label>
+            <textarea id="sugestao" name="sugestao" 
+            placeholder="Escreva sua opinião (opcional)"></textarea>
+        </div>
+    <button class="botao" type="submit">
+        Enviar avaliação
+    </button>
+    </form>
+        <div class="resultado" id="resultadoAvaliacao"
+        role="status" aria-live="polite"></div>
+    </section>
+<!-- QUESTIONÁRIO 2: SOLICITAÇÃO DE VISITA -->
+    <section class="cartao">
+        <h2>📅 2. Quero visitar a trilha</h2>
+        <p class="descricao">
+        Preencha os campos abaixo para demonstrar seu
+        interesse em uma visita. As datas e os horários
+        apresentados são apenas exemplos do protótipo.
+        </p>
+        <form id="formVisita">
+            <div class="campo">
+                <label for="nome">Nome completo</label>
+                     <input type="text" id="nome" name="nome" autocomplete="name"
+                    placeholder="Digite seu nome" required >
+            </div>
+            <div class="campo">
+                <label for="email">E-mail para contato</label>
+                    <input type="email" id="email" name="email" autocomplete="email"
+                    placeholder="exemplo@email.com" required>
+                    <p class="nota">
+                    No protótipo, o e-mail não será enviado nem armazenado.
+                    </p>
+            </div>
+            <div class="campo">
+                <label for="perfil">Você é:</label>
+                <select id="perfil" name="perfil" required>
+                    <option value="">Selecione uma opção</option>
+                    <option>Estudante</option>
+                    <option>Professor(a)</option>
+                    <option>Pesquisador(a)</option>
+                    <option>Representante de instituição</option>
+                    <option>Visitante da comunidade</option>
+                    <option>Outro</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="instituicao"> escola, instituição ou grupo </label>
+                <input type="text" id="instituicao" name="instituicao"
+                placeholder="Nome da instituição (opcional)">
+            </div>
+            <div class="campo">
+                <label for="quantidade">
+                Quantas pessoas pretendem participar?
+                </label>
+                <select id="quantidade" name="quantidade" required>
+                    <option value="">Selecione a quantidade</option>
+                    <option value="1">1 pessoa</option>
+                    <option value="2 a 5">2 a 5 pessoas</option>
+                    <option value="6 a 10">6 a 10 pessoas</option>
+                    <option value="11 a 20">11 a 20 pessoas</option>
+                    <option value="Mais de 20">Mais de 20 pessoas</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="dataVisita"> Data de preferência </label>
+                 <select id="dataVisita" name="dataVisita" required>
+                    <option value="">Selecione uma data</option>
+                    <option value="10/11/2026">10/11/2026 </option>
+                    <option value="17/11/2026">17/11/2026 </option>
+                    <option value="24/11/2026">24/11/2026 </option>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="horario">Horário de preferência</label>
+                <select id="horario" name="horario" required>
+                    <option value="">Selecione um horário</option>
+                    <option value="09:00 às 10:00">
+                        09h às 10h 
+                    </option>
+                    <option value="10:00 às 11:00">
+                        10h às 11h 
+                    </option>
+                    <option value="14:00 às 15:00">
+                        14h às 15h
+                    </option>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="objetivoVisita">
+                    Qual é o objetivo da visita?
+                </label>
+                <select id="objetivoVisita" name="objetivoVisita" required>
+                    <option value="">Selecione uma opção</option>
+                    <option>Educação ambiental</option>
+                    <option>Atividade escolar ou acadêmica</option>
+                    <option>Pesquisa científica</option>
+                    <option>Conhecer a fauna e a flora</option>
+                    <option>Outro motivo</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="observacao">
+                    Observações adicionais
+                </label>
+                <textarea id="observacao" name="observacao"
+                placeholder="Informações adicionais (opcional)"></textarea>
+            </div>
+            <p class="nota">
+            Pode leva 3 a 5 dias para aceitar a solicitação
+            </p>
+            <button class="botao" type="submit">
+                Enviar solicitação
+            </button>
+        </form>
+        <div class="resultado" id="resultadoVisita"
+        role="status" aria-live="polite"></div>
+    </section>
+    </div>
+    </main>
+    
+    <footer>
+        <p>Projeto de divulgação para Trilha Ecológica Saimiri — IFAM/CMDI</p>
+    </footer>
+
+<script>
+    // QUESTIONÁRIO DE AVALIAÇÃO
+    document.getElementById("formAvaliacao").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const formulario = new FormData(this);
+    const resultado = document.getElementById(
+    "resultadoAvaliacao");
+        resultado.innerHTML = `
+            <h3>🌿 Obrigado pela sua participação!</h3>
+            <p>Suas respostas foram enviadas com sucesso.</p>
+            <p><em>Agradeçemos por sua visita</em></p>`;
+        resultado.style.display = "block";
+        resultado.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+        });
+    });
+// QUESTIONÁRIO DE INTERESSE EM VISITAR
+    document.getElementById("formVisita").addEventListener("submit",function(event) {
+        event.preventDefault();
+        const formulario = new FormData(this);
+        const resultado = document.getElementById("resultadoVisita");
+        resultado.innerHTML = `<h3>🌱 Solicitação Enviada!</h3>
+            <p><strong>Atenção:</strong> Mensagem para o Email 
+            registrado com a confirmação da visita.</p>`;
+        resultado.style.display = "block";
+        resultado.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+        });
+    });
+    function escaparHTML(valor) {
+        return String(valor).replace(/[&<>"']/g, function(caractere) {
+            const entidades = {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#039;"
+           };
+        return entidades[caractere];
+        });
+    }
+//salvar dados
+    const dados = Object.fromEntries(new FormData(this));
+    const lista = JSON.parse(localStorage.getItem('resposta_saimiri') || '[]');
+    lista.push(dados);
+    localStorage.setItem('resposta_saimiri', JSON.stringify(lista));
+    res.innerHTML = ' ... ${escapaHTML(dados.nota)} ... ${lista.length}';
+    this.reset();
+    </script>
+</body>
+</html>
